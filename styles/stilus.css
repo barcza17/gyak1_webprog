@@ -1,0 +1,381 @@
+header {
+    border-radius: 10px;
+    background-color: rgb(88, 238, 69);
+    padding: 10px;
+    margin: 10px;
+}
+
+header img {
+    float: left;
+    margin: 20px 10px 0px 10px;
+    width: 50px;
+    height: 50px;
+}
+
+div#wrapper {
+    margin: 10px;
+}
+
+nav {
+    margin: 0px 10px 0px 0px;
+    top: 0px;
+    border-radius: 10px;
+    background-color: #FF6600;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 15px 0px;
+}
+
+nav ul li {
+    padding: 0px 15px;;
+}
+
+nav ul li.active {
+    color: blue;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: blue;
+}
+
+div#content {
+    margin: 0 auto; 
+    border-radius: 10px;
+    background-color: #99FFCC;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+footer {
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px 20px;
+    background-color: #ffb700;
+}
+.horizontal-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    width: 100%;   
+    position: relative;
+}
+
+.horizontal-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.horizontal-menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.horizontal-menu li a:hover {
+    background-color: #81ff03;
+}
+
+.horizontal-menu .active a {
+    background-color: #4CAF50;
+}
+.uzenetek-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.uzenetek-container textarea {
+    width: 100%;
+    height: 150px;
+    resize: none; /* Nem engedi a méret módosítását */
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.uzenetek-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.uzenetek-container table th,
+.uzenetek-container table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.uzenetek-container table th {
+    background-color: #f4f4f4;
+}
+
+.receptek-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.receptek-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.receptek-container table th,
+.receptek-container table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.receptek-container table th {
+    background-color: #f4f4f4;
+}
+
+.add-recipe-button {
+    margin-bottom: 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.add-recipe-button:hover {
+    background-color: #218838;
+}
+
+.no-recipes-message {
+    font-size: 18px;
+    color: #555;
+    margin-top: 20px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+.modal-header .close-button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal form input,
+.modal form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.modal form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.modal form button:hover {
+    background-color: #218838;
+}
+
+.receptek-container {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.recipe-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recipe-list li {
+    margin: 10px 0;
+}
+
+.recipe-link {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.recipe-link:hover {
+    text-decoration: underline;
+}
+
+#recipeImageContainer img {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+.modal-header .close-button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-content p {
+    margin: 10px 0;
+}
+.kapcsolat-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 20px;
+}
+
+.kapcsolat-info {
+    flex: 1;
+    max-width: 45%;
+}
+
+.kapcsolat-form {
+    flex: 1;
+    max-width: 45%;
+}
+
+.kapcsolat-form textarea {
+    width: 100%;
+    resize: none;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.kapcsolat-form button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.kapcsolat-form button:hover {
+    background-color: #0056b3;
+}
+.kepek-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.kepek-container img {
+    width: 30%;
+    height: auto;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.kep img {
+    width: 300%;
+    height: auto;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+form button {
+    background-color: #007BFF; /* Kék háttérszín */
+    color: white; /* Fehér szöveg */
+    font-weight: bold; /* Vastag betű */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #0056b3; /* Sötétebb kék, ha az egér fölé kerül */
+}
+
+form button:disabled {
+    background-color: #cccccc; 
+    color: #666666; 
+    cursor: not-allowed; }
+    
