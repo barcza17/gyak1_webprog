@@ -4,8 +4,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Kapcsolódás az adatbázishoz
     try {
-        $dbh = new PDO('mysql:host=localhost;dbname=receptek_users', 'root', '',
-            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $dbh = new PDO('mysql:host=localhost;dbname=barcza17_receptek', 'barcza17', 'Nethely_123',
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
         $uzenet = trim($_POST['uzenet'] ?? '');
 
