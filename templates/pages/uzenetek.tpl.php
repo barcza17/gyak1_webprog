@@ -63,36 +63,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['uzenet']) && !empty(t
 <div class="uzenetek-container">
     <h2>Üzenetek</h2>
 
-    <!-- Üzenetküldő űrlap -->
-    <form method="post" action="">
+    <form method="post" action="" style="margin-bottom: 20px;">
         <label for="uzenet">Üzenet:</label><br>
-        <textarea id="uzenet" name="uzenet" required></textarea><br>
-        <button type="submit">Küldés</button>
+        <textarea id="uzenet" name="uzenet" required style="width: 100%; resize: none;"></textarea><br>
+        <button type="submit" style="padding: 10px 20px; font-size: 1rem;">Küldés</button>
     </form>
 
-    <!-- Üzenetek megjelenítése -->
-    <table>
-        <thead>
-            <tr>
-                <th>Küldő</th>
-                <th>Üzenet</th>
-                <th>Küldés ideje</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if (!empty($uzenetek)) { ?>
-                <?php foreach ($uzenetek as $uzenet) { ?>
+    <div style="overflow-x: auto;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Küldő</th>
+                    <th>Üzenet</th>
+                    <th>Küldés ideje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (!empty($uzenetek)) { ?>
+                    <?php foreach ($uzenetek as $uzenet) { ?>
+                        <tr>
+                            <td><?= htmlspecialchars($uzenet['kuldo']) ?></td>
+                            <td><?= htmlspecialchars($uzenet['uzenet']) ?></td>
+                            <td><?= htmlspecialchars($uzenet['kuldes_ideje']) ?></td>
+                        </tr>
+                    <?php } ?>
+                <?php } else { ?>
                     <tr>
-                        <td><?= htmlspecialchars($uzenet['kuldo']) ?></td>
-                        <td><?= htmlspecialchars($uzenet['uzenet']) ?></td>
-                        <td><?= htmlspecialchars($uzenet['kuldes_ideje']) ?></td>
+                        <td colspan="3">Nincs megjeleníthető üzenet.</td>
                     </tr>
                 <?php } ?>
-            <?php } else { ?>
-                <tr>
-                    <td colspan="3">Nincs megjeleníthető üzenet.</td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
