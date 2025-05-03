@@ -1,4 +1,8 @@
 <h2>Üdvözöljük oldalunkon!</h2>
+<video width="400" controls preload="auto" style="float: left; margin: 0 15px 15px 0;">
+  <source src="video/video.mp4" type="video/mp4">
+  A böngésződ nem támogatja a videólejátszást.
+</video>
 <iframe style="float: right; margin: 0 0 15px 15px;" width="560" height="315" src="https://www.youtube.com/embed/8cOzvpzsmr8?si=_K6H5owL8mTANHgu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 <p>Képzelje el azt a pillanatot, amikor kint hűvös szél fúj, odabent pedig meleg
      fényekkel világított kuckó várja, a konyhából pedig frissen sült sütemények,
