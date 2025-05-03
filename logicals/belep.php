@@ -33,7 +33,7 @@ if (isset($_POST['felhasznalonev']) && isset($_POST['jelszo'])) {
             // Sikertelen bejelentkezés
             echo "<script>
             window.location.href = '../belepes.tpl.php';
-                alert('Sikeres bejelentkezés!');
+                alert('Sikertelen bejelentkezés!');
             </script>";
             echo "<p>Hibás felhasználónév vagy jelszó!</p>";
         }
