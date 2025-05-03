@@ -24,9 +24,9 @@ $oldalak = array(
     'belepes' => array('fajl' => 'belepes', 'szoveg' => 'Belépés/Regisztráció', 'menun' => array(1,0)),
     'kilepes' => array('fajl' => 'kilepes', 'szoveg' => 'Kilépés', 'menun' => array(0,1)),
     'kapcsolat_feldolgozas' => array('fajl' => 'kapcsolat_feldolgozas', 'szoveg' => 'Kapcsolat - üzenetek', 'menun' => array(0,0)),
-   
-
+    'kapcsolat_koszonjuk' => array('fajl' => 'kapcsolat_koszonjuk', 'szoveg' => '', 'menun' => array(0,0))
 );
+
 
 $hiba_oldal = array ('fajl' => '404', 'szoveg' => 'A keresett oldal nem található!');
 ?>

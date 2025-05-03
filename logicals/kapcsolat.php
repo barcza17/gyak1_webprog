@@ -2,24 +2,33 @@
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     session_start();
 
-    // Kapcsolódás az adatbázishoz
     try {
-        $dbh = new PDO('mysql:host=localhost;dbname=barcza17_receptek', 'barcza17', 'Nethely_123',
-        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $dbh = new PDO(
+            'mysql:host=localhost;dbname=barcza17',
+            'barcza17',
+            'Nethely_123',
+            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+        );
 
         $uzenet = trim($_POST['uzenet'] ?? '');
+        $email = trim($_POST['email'] ?? '');
+        $felhasznalo_id = $_SESSION['user_id'] ?? null;
 
-        if ($uzenet) {
-            $felhasznalo_id = $_SESSION['user_id'] ?? null;
+        if ($uzenet && $email) {
+            $stmt = $dbh->prepare("
+                INSERT INTO kapcsolatfelvetel (felhasznalo_id, email, kuldes_ideje, uzenet)
+                VALUES (?, ?, NOW(), ?)
+            ");
+            $stmt->execute([$felhasznalo_id, $email, $uzenet]);
 
-            $stmt = $dbh->prepare("INSERT INTO kapcsolatfelvetel (uzenet, kuldes_ideje, felhasznalo_id) VALUES (?, NOW(), ?)");
-            $stmt->execute([$uzenet, $felhasznalo_id]);
+            header("Location: index.php?page=kapcsolat_koszonjuk");
+            exit;
+        } else {
+            echo "Hiányzó mezők: kérjük, töltsd ki az űrlapot!";
         }
 
-        header("Location: index.php?page=kapcsolat_koszonjuk");
-        exit;
     } catch (PDOException $e) {
-        die("Hiba: " . htmlspecialchars($e->getMessage()));
+        die("Adatbázis hiba: " . htmlspecialchars($e->getMessage()));
     }
 }
 ?>

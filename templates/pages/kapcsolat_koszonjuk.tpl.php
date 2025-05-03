@@ -1,2 +1,4 @@
-<h2>Köszönjük az üzenetet!</h2>
-<p>Hamarosan válaszolunk.</p>
+<h2>Köszönjük!</h2>
+<p>Üzeneted sikeresen elküldtük az oldal üzemeltetőinek.</p>
+<p>Hamarosan felvesszük veled a kapcsolatot, ha szükséges.</p>
+
