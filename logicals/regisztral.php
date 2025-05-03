@@ -50,7 +50,7 @@ if (
             
         }
     } catch (PDOException $e) {
-        header("Location: ../belepes.tpl.php?hiba=2");
+        header("Location: ../index.php?page=belepes&hiba=2");
         exit();
     }
     

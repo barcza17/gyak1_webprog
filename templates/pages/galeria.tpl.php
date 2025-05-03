@@ -3,22 +3,14 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Van-e bejelentkezett felhasználó
-if (!isset($_SESSION['felhasznalo_id']) || empty($_SESSION['felhasznalo_id']) || !is_numeric($_SESSION['felhasznalo_id'])) {
-    echo '<p style="color: red;">A kép feltöltéshez jelentkezz be!</p>';
-    exit;
-}
-
-// Képfeltöltés feldolgozása
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// Képfeltöltés – csak ha POST és be van jelentkezve
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['felhasznalo_id'])) {
     try {
         $dbh = new PDO(
             'mysql:host=127.0.0.1;dbname=barcza17;charset=utf8',
             'barcza17',
             'Nethely_123',
-            [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-            ]
+            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
         );
 
         if (isset($_FILES['kep']) && $_FILES['kep']['error'] === UPLOAD_ERR_OK) {
@@ -50,9 +42,7 @@ try {
         'mysql:host=127.0.0.1;dbname=barcza17;charset=utf8',
         'barcza17',
         'Nethely_123',
-        [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        ]
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
 
     $sql = "SELECT * FROM kepek ORDER BY id DESC";
@@ -66,19 +56,24 @@ try {
 
 <h1>Galéria</h1>
 
-<form method="post" action="" enctype="multipart/form-data" class="kapcsolat-form">
-    <input type="file" name="kep" accept="image/*" required>
-    <button type="submit">Feltöltés</button>
-</form>
+<?php if (isset($_SESSION['felhasznalo_id'])): ?>
+    <form method="post" action="" enctype="multipart/form-data" class="kapcsolat-form">
+        <input type="file" name="kep" accept="image/*" required>
+        <button type="submit">Feltöltés</button>
+    </form>
+<?php else: ?>
+    <p style="color: red;">A kép feltöltéséhez jelentkezz be!</p>
+<?php endif; ?>
+
 
 <div class="kepek-container">
-    <?php if (!empty($kepek)) { ?>
-        <?php foreach ($kepek as $kep) { ?>
+    <?php if (!empty($kepek)): ?>
+        <?php foreach ($kepek as $kep): ?>
             <div class="kep">
                 <img src="/uploads/<?= htmlspecialchars($kep['fajlnev']) ?>" alt="Kép">
             </div>
-        <?php } ?>
-    <?php } else { ?>
+        <?php endforeach; ?>
+    <?php else: ?>
         <p>Nincs feltöltött kép.</p>
-    <?php } ?>
+    <?php endif; ?>
 </div>

@@ -2,6 +2,13 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+if (!isset($_SESSION['felhasznalo_id'])) {
+    // Nincs belépve → vissza a galériához vagy főoldalra
+    header("Location: ../index.php?page=kepek&hiba=1");
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['felhasznalo_id'])) {
     try {
         $dbh = new PDO(
