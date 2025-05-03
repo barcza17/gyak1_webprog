@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="hu">
 <head>
-    <title>Regisztráció</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regisztráció</title>
+    <link rel="stylesheet" href="./styles/stilus.css" type="text/css">
 </head>
-
-    <body>
-        <?php if(isset($uzenet)) { ?>
+<body>
+    <div id="content">
+        <?php if (isset($uzenet)) { ?>
             <h1><?= $uzenet ?></h1>
-            <?php if($ujra) { ?>
-                <a href="belepes">Próbálja újra!</a>
+            <?php if ($ujra) { ?>
+                <p><a href="belepes" class="button-link">Próbálja újra!</a></p>
             <?php } ?>
         <?php } ?>
-    </body>  
+    </div>
+</body>
+</html>
+
