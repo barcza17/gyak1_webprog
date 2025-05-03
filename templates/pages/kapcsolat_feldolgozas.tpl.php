@@ -21,22 +21,24 @@ try {
 }
 ?>
 
-<h2>Kapott üzenetek</h2>
-<table border="1" style="width: 100%; border-collapse: collapse;">
-    <thead>
-        <tr>
-            <th>Küldő</th>
-            <th>Üzenet</th>
-            <th>Küldés ideje</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($uzenetek as $uzenet) { ?>
+<div class="uzenetek-container">
+    <h2>Kapott üzenetek</h2>
+    <table>
+        <thead>
             <tr>
-                <td><?= htmlspecialchars($uzenet['kuldo']) ?></td>
-                <td><?= htmlspecialchars($uzenet['uzenet']) ?></td>
-                <td><?= htmlspecialchars($uzenet['kuldes_ideje']) ?></td>
+                <th>Küldő</th>
+                <th>Üzenet</th>
+                <th>Küldés ideje</th>
             </tr>
-        <?php } ?>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <?php foreach ($uzenetek as $uzenet) { ?>
+                <tr>
+                    <td><?= htmlspecialchars($uzenet['kuldo']) ?></td>
+                    <td><?= htmlspecialchars($uzenet['uzenet']) ?></td>
+                    <td><?= htmlspecialchars($uzenet['kuldes_ideje']) ?></td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>

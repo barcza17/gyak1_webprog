@@ -3,10 +3,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Ellenőrizzük, hogy van-e bejelentkezett felhasználó
+// Van-e bejelentkezett felhasználó
 if (!isset($_SESSION['felhasznalo_id']) || empty($_SESSION['felhasznalo_id']) || !is_numeric($_SESSION['felhasznalo_id'])) {
     echo '<p style="color: red;">A kép feltöltéshez jelentkezz be!</p>';
-    exit; // Megállítjuk a további feldolgozást
+    exit;
 }
 
 // Képfeltöltés feldolgozása
@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $filePath = $uploadDir . $fileName;
 
             if (move_uploaded_file($_FILES['kep']['tmp_name'], $filePath)) {
-                // Kép mentése az adatbázisba
                 $sql = "INSERT INTO kepek (fajlnev) VALUES (:fajlnev)";
                 $sth = $dbh->prepare($sql);
                 $sth->execute([':fajlnev' => $fileName]);
@@ -49,7 +48,7 @@ try {
     $sql = "SELECT * FROM kepek ORDER BY id DESC";
     $sth = $dbh->prepare($sql);
     $sth->execute();
-    $kepek = $sth->fetchAll(PDO::FETCH_ASSOC); // Az összes kép lekérdezése
+    $kepek = $sth->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     echo "<p>Hiba történt az adatbázis műveletek során: " . htmlspecialchars($e->getMessage()) . "</p>";
 }
@@ -57,20 +56,16 @@ try {
 
 <h1>Galéria</h1>
 
-<?php if (isset($_SESSION['felhasznalo_id'])) { ?>
-    <form method="post" action="" enctype="multipart/form-data">
-        <input type="file" name="kep" accept="image/*" required>
-        <button type="submit">Feltöltés</button>
-    </form>
-<?php } else { ?>
-    <p style="color: red;">A kép feltöltéshez jelentkezz be.</p>
-<?php } ?>
+<form method="post" action="" enctype="multipart/form-data" class="kapcsolat-form">
+    <input type="file" name="kep" accept="image/*" required>
+    <button type="submit">Feltöltés</button>
+</form>
 
 <div class="kepek-container">
     <?php if (!empty($kepek)) { ?>
         <?php foreach ($kepek as $kep) { ?>
             <div class="kep">
-                <img src="/uploads/<?= htmlspecialchars($kep['fajlnev']) ?>" alt="Kép" style="max-width: 200px; max-height: 200px;">
+                <img src="/uploads/<?= htmlspecialchars($kep['fajlnev']) ?>" alt="Kép">
             </div>
         <?php } ?>
     <?php } else { ?>
