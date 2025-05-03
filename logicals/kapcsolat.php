@@ -4,10 +4,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     try {
         $dbh = new PDO(
-            'mysql:host=localhost;dbname=barcza17',
+            'mysql:host=127.0.0.1;dbname=barcza17;charset=utf8',
             'barcza17',
             'Nethely_123',
-            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+            [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            ]
         );
 
         $uzenet = trim($_POST['uzenet'] ?? '');

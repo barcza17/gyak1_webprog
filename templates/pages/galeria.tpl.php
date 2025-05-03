@@ -12,9 +12,14 @@ if (!isset($_SESSION['felhasznalo_id']) || empty($_SESSION['felhasznalo_id']) ||
 // Képfeltöltés feldolgozása
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
-        $dbh = new PDO('mysql:host=localhost;dbname=receptek_users', 'root', '', [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        ]);
+        $dbh = new PDO(
+            'mysql:host=127.0.0.1;dbname=barcza17;charset=utf8',
+            'barcza17',
+            'Nethely_123',
+            [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            ]
+        );
 
         if (isset($_FILES['kep']) && $_FILES['kep']['error'] === UPLOAD_ERR_OK) {
             $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/';
@@ -41,9 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Képek lekérdezése
 $kepek = [];
 try {
-    $dbh = new PDO('mysql:host=localhost;dbname=receptek_users', 'root', '', [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-    ]);
+    $dbh = new PDO(
+        'mysql:host=127.0.0.1;dbname=barcza17;charset=utf8',
+        'barcza17',
+        'Nethely_123',
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ]
+    );
 
     $sql = "SELECT * FROM kepek ORDER BY id DESC";
     $sth = $dbh->prepare($sql);

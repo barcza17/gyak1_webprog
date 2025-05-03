@@ -4,9 +4,16 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 try {
-    $dbh = new PDO('mysql:host=localhost;dbname=receptek_users', 'root', '', [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-    ]);
+    $dbh = new PDO(
+        'mysql:host=127.0.0.1;dbname=barcza17;charset=utf8',
+        'barcza17',
+        'Nethely_123',
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ]
+    );
+    
+    
 
     $sql = "SELECT kapcsolatfelvetel.uzenet, kapcsolatfelvetel.kuldes_ideje, 
                    IFNULL(felhasznalok.felhasznalonev, 'Vendég') AS kuldo

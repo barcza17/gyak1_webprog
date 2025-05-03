@@ -22,6 +22,7 @@ $oldalak = array(
     'uzenetek' => array('fajl' => 'uzenetek', 'szoveg' => 'Üzenetek', 'menun' => array(0,1)),
     'galeria' => array('fajl' => 'galeria', 'szoveg' => 'Galéria', 'menun' => array(1,1)),
     'belepes' => array('fajl' => 'belepes', 'szoveg' => 'Belépés/Regisztráció', 'menun' => array(1,0)),
+    'regisztral' => array('fajl' => 'regisztral', 'szoveg' => 'Regisztráció', 'menun' => array(0,0)),
     'kilepes' => array('fajl' => 'kilepes', 'szoveg' => 'Kilépés', 'menun' => array(0,1)),
     'kapcsolat_feldolgozas' => array('fajl' => 'kapcsolat_feldolgozas', 'szoveg' => 'Kapcsolat - üzenetek', 'menun' => array(0,0)),
     'kapcsolat_koszonjuk' => array('fajl' => 'kapcsolat_koszonjuk', 'szoveg' => '', 'menun' => array(0,0))

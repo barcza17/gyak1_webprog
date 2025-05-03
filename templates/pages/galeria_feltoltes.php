@@ -4,9 +4,15 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['felhasznalo_id'])) {
     try {
-        $dbh = new PDO('mysql:host=localhost;dbname=receptek_users', 'root', '', [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        ]);
+        $dbh = new PDO(
+            'mysql:host=127.0.0.1;dbname=barcza17;charset=utf8',
+            'barcza17',
+            'Nethely_123',
+            [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            ]
+        );
+        
 
         $filePath = null;
         if (isset($_FILES['kep']) && $_FILES['kep']['error'] === UPLOAD_ERR_OK) {
